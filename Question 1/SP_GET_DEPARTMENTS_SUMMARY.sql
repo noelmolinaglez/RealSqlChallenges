@@ -45,7 +45,11 @@ BEGIN
     GROUP BY eh.DepartmentID;
 
     SELECT
-        name, [EmployeesCount], [MalesEmployees], [FemalesEmployees], [years]
+        name as 'DepartmentName',
+        [EmployeesCount] as 'EmployeesCount',
+        [MalesEmployees] as 'MaleEmployees',
+        [FemalesEmployees] as 'FemaleEmployees',
+        [years] as 'AvgWorkingTime'
     FROM
         (
             SELECT d.name, value, type
