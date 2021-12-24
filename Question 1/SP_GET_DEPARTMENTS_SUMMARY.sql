@@ -1,4 +1,3 @@
-USE AdventureWorks2012
 
 CREATE OR ALTER PROCEDURE [HumanResources].[SP_GET_DEPARTMENTS_SUMMARY]
 AS
@@ -17,7 +16,7 @@ BEGIN
            'EmployeesCount'
     FROM AdventureWorks2012.HumanResources.EmployeeDepartmentHistory eh
     WHERE eh.EndDate is null
-    GROUP BY eh.DepartmentID
+    GROUP BY eh.DepartmentID;
 
     INSERT INTO @DepartmentsValues
     SELECT eh.DepartmentID,
@@ -26,7 +25,7 @@ BEGIN
     FROM AdventureWorks2012.HumanResources.EmployeeDepartmentHistory eh
              INNER JOIN AdventureWorks2012.HumanResources.Employee e on e.BusinessEntityID = eh.BusinessEntityID
     WHERE e.Gender = 'M'
-    GROUP BY eh.DepartmentID
+    GROUP BY eh.DepartmentID;
 
     INSERT INTO @DepartmentsValues
     SELECT eh.DepartmentID,
@@ -35,7 +34,7 @@ BEGIN
     FROM AdventureWorks2012.HumanResources.EmployeeDepartmentHistory eh
              INNER JOIN AdventureWorks2012.HumanResources.Employee e on e.BusinessEntityID = eh.BusinessEntityID
     WHERE e.Gender = 'F'
-    GROUP BY eh.DepartmentID
+    GROUP BY eh.DepartmentID;
 
     INSERT INTO @DepartmentsValues
     SELECT eh.DepartmentID,
@@ -43,6 +42,6 @@ BEGIN
            'years'
     FROM AdventureWorks2012.HumanResources.EmployeeDepartmentHistory eh
              INNER JOIN AdventureWorks2012.HumanResources.Employee e on e.BusinessEntityID = eh.BusinessEntityID
-    GROUP BY eh.DepartmentID
+    GROUP BY eh.DepartmentID;
 END
 GO
