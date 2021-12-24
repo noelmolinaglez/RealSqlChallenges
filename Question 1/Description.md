@@ -13,3 +13,6 @@ Your output should include the following columns:
 * Males Employee
 * Females Employee
 * Avg Employee Hired Time
+
+Sample Output:
+![img.png](img.png)
