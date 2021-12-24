@@ -7,7 +7,7 @@ BEGIN
     DECLARE @DepartmentsValues TABLE(
                                         DepartmentID smallint,
                                         Value int,
-                                        Type varchar(10)
+                                        Type varchar(20)
                                     );
 
     INSERT INTO @DepartmentsValues
@@ -50,7 +50,7 @@ BEGIN
         (
             SELECT d.name, value, type
             FROM @DepartmentsValues dt
-                     INNER JOIN AdventureWorks2012.HumanResources.Department d on d.DepartmentID = dt.DepartmentID
+            INNER JOIN AdventureWorks2012.HumanResources.Department d on d.DepartmentID = dt.DepartmentID
         ) AS SourceTable
             PIVOT
             (MAX(value)
