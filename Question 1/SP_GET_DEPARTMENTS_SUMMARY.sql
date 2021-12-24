@@ -43,5 +43,19 @@ BEGIN
     FROM AdventureWorks2012.HumanResources.EmployeeDepartmentHistory eh
              INNER JOIN AdventureWorks2012.HumanResources.Employee e on e.BusinessEntityID = eh.BusinessEntityID
     GROUP BY eh.DepartmentID;
+
+    SELECT
+        name, [EmployeesCount], [MalesEmployees], [FemalesEmployees], [years]
+    FROM
+        (
+            SELECT d.name, value, type
+            FROM @DepartmentsValues dt
+                     INNER JOIN AdventureWorks2012.HumanResources.Department d on d.DepartmentID = dt.DepartmentID
+        ) AS SourceTable
+            PIVOT
+            (MAX(value)
+            FOR type IN ([EmployeesCount], [MalesEmployees], [FemalesEmployees], [years])
+            ) AS PivotTable;
+
 END
 GO
