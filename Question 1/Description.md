@@ -15,4 +15,4 @@ Your output should include the following columns:
 * Avg Employee Hired Time
 
 Sample Output:
-![img.png](img.png)
+![img_1.png](img_1.png)
