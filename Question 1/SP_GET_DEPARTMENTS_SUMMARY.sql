@@ -48,7 +48,9 @@ BEGIN
         name as 'DepartmentName',
         ISNULL([EmployeesCount],0) as 'EmployeesCount',
         ISNULL([MalesEmployees],0) as 'MaleEmployees',
+        IIF(ISNULL([MalesEmployees],0) = 0,0,ROUND([MalesEmployees] * 100 /[EmployeesCount],2)) as 'MalePercent',
         ISNULL([FemalesEmployees],0) as 'FemaleEmployees',
+        IIF(ISNULL([FemalesEmployees],0) = 0,0,ROUND([FemalesEmployees] * 100 /[EmployeesCount],2)) as 'FemalePercent',
         ISNULL([years],0) as 'AvgWorkingTime'
     FROM
         (
