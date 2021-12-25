@@ -15,7 +15,7 @@ BEGIN
            COUNT(*),
            'EmployeesCount'
     FROM AdventureWorks2012.HumanResources.EmployeeDepartmentHistory eh
-    WHERE eh.EndDate is null
+    WHERE eh.EndDate IS NULL
     GROUP BY eh.DepartmentID;
 
     INSERT INTO @DepartmentsValues
@@ -25,6 +25,7 @@ BEGIN
     FROM AdventureWorks2012.HumanResources.EmployeeDepartmentHistory eh
              INNER JOIN AdventureWorks2012.HumanResources.Employee e on e.BusinessEntityID = eh.BusinessEntityID
     WHERE e.Gender = 'M'
+    AND eh.EndDate IS NULL
     GROUP BY eh.DepartmentID;
 
     INSERT INTO @DepartmentsValues
@@ -34,6 +35,7 @@ BEGIN
     FROM AdventureWorks2012.HumanResources.EmployeeDepartmentHistory eh
              INNER JOIN AdventureWorks2012.HumanResources.Employee e on e.BusinessEntityID = eh.BusinessEntityID
     WHERE e.Gender = 'F'
+    AND eh.EndDate IS NULL
     GROUP BY eh.DepartmentID;
 
     INSERT INTO @DepartmentsValues
