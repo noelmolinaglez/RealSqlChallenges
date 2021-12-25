@@ -46,10 +46,10 @@ BEGIN
 
     SELECT
         name as 'DepartmentName',
-        [EmployeesCount] as 'EmployeesCount',
-        [MalesEmployees] as 'MaleEmployees',
-        [FemalesEmployees] as 'FemaleEmployees',
-        [years] as 'AvgWorkingTime'
+        ISNULL([EmployeesCount],0) as 'EmployeesCount',
+        ISNULL([MalesEmployees],0) as 'MaleEmployees',
+        ISNULL([FemalesEmployees],0) as 'FemaleEmployees',
+        ISNULL([years],0) as 'AvgWorkingTime'
     FROM
         (
             SELECT d.name, value, type
