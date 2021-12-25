@@ -11,7 +11,9 @@ Your output should include the following columns:
 * Department name
 * Employee Count
 * Males Employee
+* Male Percent 
 * Females Employee
+* Females Percent
 * Avg Employee Hired Time
 
 Sample Output:
